@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HALO: Long Horizon Latent Action Learning</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="#abstract">Abstract</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#contributions">Contributions</a>
+    <a href="#results">Results</a>
+    <a href="#tasks">Tasks</a>
+    <a href="#video">Video</a>
+  </nav>
+
+  <header>
+    <h1>HALO: Long Horizon Latent Action Learning for General Robot Manipulation</h1>
+    <p><em>NeurIPS 2025 Submission</em></p>
+  </header>
+
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>Robotic manipulation often requires understanding long-horizon tasks guided by visual observations and language instructions. HALO proposes a new method leveraging long video context, state-aware latent alignment, and multi-step denoising action prediction. It significantly outperforms prior VLA models on complex manipulation tasks.</p>
+  </section>
+
+  <section id="architecture">
+    <h2>Model Architecture</h2>
+    <img src="assets/images/halo_architecture.png" alt="HALO Model Architecture" width="100%">
+    <p>HALO integrates a pretrained VLM, a state-aware latent re-representation module, and an action expert to generate multi-step robot actions.</p>
+  </section>
+
+  <section id="contributions">
+    <h2>Key Contributions</h2>
+    <ul>
+      <li>Supports long-horizon visual-linguistic context</li>
+      <li>State-aware latent re-representation for cross-modal alignment</li>
+      <li>10B parameter scale trained on 1M+ robot episodes</li>
+      <li>Outperforms RT-2-X and pi0 in both simulation and real-world</li>
+    </ul>
+  </section>
+
+  <section id="results">
+    <h2>Experimental Results</h2>
+    <table border="1">
+      <caption>Success Rates on SIMPLER (Google Robot)</caption>
+      <thead>
+        <tr><th>Method</th><th>Single-Step Avg</th><th>Multi-Step Avg</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>RT-2-X</td><td>78.7%</td><td>3.7%</td></tr>
+        <tr><td>pi0</td><td>87.3%</td><td>16.0%</td></tr>
+        <tr><td><strong>HALO (Ours)</strong></td><td><strong>94.3%</strong></td><td><strong>19.4%</strong></td></tr>
+      </tbody>
+    </table>
+    <img src="assets/images/sim_results.png" alt="Comparison Chart" width="100%">
+  </section>
+
+  <section id="tasks">
+    <h2>Task Visualization</h2>
+    <img src="assets/images/heat_food_task.png" alt="Heat the Food Sequence" width="100%">
+    <p>Example long-horizon task: placing a pot in the oven, closing it, setting timer, reopening, and returning pot to table.</p>
+  </section>
+
+  <section id="video">
+    <h2>Demo Video</h2>
+    <video controls width="640">
+      <source src="assets/video/demo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <!-- For YouTube version:
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+    -->
+  </section>
+
+  <footer>
+    <p><a href="halo.pdf">Download Paper (PDF)</a> | <a href="https://github.com/NsurrenderX/gcr_lerobot_2">GitHub Repo</a></p>
+  </footer>
+</body>
+</html>
